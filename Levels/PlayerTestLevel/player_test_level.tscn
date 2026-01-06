@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://u6el7kgbpfrt"]
+
+[ext_resource type="Script" uid="uid://bj62x7fiff46d" path="res://Levels/PlayerTestLevel/player_test_level.gd" id="1_a2txw"]
+[ext_resource type="PackedScene" uid="uid://y01nc0no6pym" path="res://Player/Player.tscn" id="2_f6bis"]
+[ext_resource type="PackedScene" uid="uid://dgsb6f8vuvfy4" path="res://Player/pause_menu.tscn" id="2_w268t"]
+[ext_resource type="Material" uid="uid://dllwalcodg1hs" path="res://Materials/Prototype_Black.tres" id="3_w268t"]
+[ext_resource type="Script" uid="uid://cx5db18e4g2td" path="res://Levels/PlayerTestLevel/interactable_test.gd" id="5_w268t"]
+
+[sub_resource type="Environment" id="Environment_21xeh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kkpsx"]
+viewport_path = NodePath("Mirror/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5et6"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_kkpsx")
+
+[node name="PlayerTestLevel" type="Node3D"]
+script = ExtResource("1_a2txw")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseMenu" instance=ExtResource("2_w268t")]
+
+[node name="Player" parent="." instance=ExtResource("2_f6bis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01290226, 1, -0.030338287)
+
+[node name="Body" parent="Player/Body2" index="0"]
+transform = Transform3D(0.51966155, 0, 0, 0, 0.4758396, 0.008600983, 0, -0.017390031, 0.2353468, 0, 0.016958714, 0)
+
+[node name="Leg" parent="Player/Body2" index="1"]
+transform = Transform3D(0.09999998, 0, 0, 0, 0.6000001, 0, 0, 0, 0.09999999, 0.16065434, -0.69625634, 0)
+
+[node name="Leg2" parent="Player/Body2" index="2"]
+transform = Transform3D(0.1, 0, 0, 0, 0.5999995, 0, 0, 0, 0.100000024, -0.161, -0.696, 0)
+
+[node name="Arm" parent="Player/Body2" index="3"]
+transform = Transform3D(0.09616456, 0.2188716, 0, -0.027429491, 0.767338, 0, 0, 0, 0.10000002, -0.34770685, -0.2099337, 0)
+
+[node name="Arm2" parent="Player/Body2" index="4"]
+transform = Transform3D(0.09617417, -0.21860376, 0, 0.027395926, 0.7674146, 0, 0, 0, 0.100000024, 0.348, -0.21042925, 0)
+
+[node name="Env" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_21xeh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(0.40890396, 0.70535105, -0.5790315, 0, 0.6345012, 0.77292186, 0.91257745, -0.3160508, 0.25945005, -4.2974586, 5.7387247, 0)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0.4058838, 0, 0)
+use_collision = true
+size = Vector3(1.0811768, 1, 1)
+material = ExtResource("3_w268t")
+
+[node name="Mirror" type="CSGBox3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 3.8045988, 0, 0, 0, 0.2, 0, 1.9726143, -4)
+material = SubResource("StandardMaterial3D_a5et6")
+
+[node name="SubViewport" type="SubViewport" parent="Mirror"]
+
+[node name="Camera3D" type="Camera3D" parent="Mirror/SubViewport"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1, -4)
+
+[node name="SideView" type="Camera3D" parent="."]
+transform = Transform3D(-4.222196e-08, -0.25881907, 0.9659258, -1.131334e-08, 0.9659259, 0.25881907, -1, 8.881784e-16, -4.371139e-08, 2.5635266, 1.4857705, 0)
+current = true
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 170.0
+offset_bottom = 118.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Switch Cam"
+
+[node name="Crouch1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0140724, 2.282845, 0)
+use_collision = true
+
+[node name="Crouch2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0140724, 1.9787321, 1)
+use_collision = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.3145027, 0)
+light_energy = 7.763
+omni_range = 11.028701
+
+[node name="Interactable" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+script = ExtResource("5_w268t")
+
+[connection signal="pressed" from="Control/Panel/Button" to="." method="_on_button_pressed"]
+
+[editable path="Player"]
