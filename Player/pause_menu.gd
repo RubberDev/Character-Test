@@ -29,6 +29,7 @@ func _on_settings_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
+# Handle pausing
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Escape"):
 		if get_tree().paused == false:
@@ -41,7 +42,6 @@ func _input(_event: InputEvent) -> void:
 			$Settings.hide()
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			
-
 
 # Close settings
 func _on_exit_settings_pressed() -> void:
@@ -104,3 +104,13 @@ func _on_anti_aliasing_choices_item_selected(index: int) -> void:
 			get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 		4:
 			get_viewport().use_taa = true
+
+# Vsync mode
+func _on_vsync_choices_item_selected(index: int) -> void:
+	match index:
+		0:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		1:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
+		2:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)

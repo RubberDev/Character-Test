@@ -207,6 +207,21 @@ popup/item_3/id = 3
 popup/item_4/text = "TAA"
 popup/item_4/id = 4
 
+[node name="VsyncMode" type="Label" parent="Settings/Panel/vBox1"]
+layout_mode = 2
+text = "Vsync"
+
+[node name="VsyncChoices" type="OptionButton" parent="Settings/Panel/vBox1"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Adaptive"
+popup/item_1/id = 1
+popup/item_2/text = "Enabled"
+popup/item_2/id = 2
+
 [node name="vBox2" type="VBoxContainer" parent="Settings/Panel"]
 layout_mode = 0
 offset_left = 467.0
@@ -226,3 +241,4 @@ offset_bottom = 642.0
 [connection signal="item_selected" from="Settings/Panel/vBox1/ScreenTypes" to="." method="_on_screen_types_item_selected"]
 [connection signal="item_selected" from="Settings/Panel/vBox1/ResolutionChoices" to="." method="_on_resolution_choices_item_selected"]
 [connection signal="item_selected" from="Settings/Panel/vBox1/AntiAliasingChoices" to="." method="_on_anti_aliasing_choices_item_selected"]
+[connection signal="item_selected" from="Settings/Panel/vBox1/VsyncChoices" to="." method="_on_vsync_choices_item_selected"]
