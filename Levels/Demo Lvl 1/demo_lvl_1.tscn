@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://clkn3fd170vwu"]
+
+[ext_resource type="PackedScene" uid="uid://y01nc0no6pym" path="res://Player/Player.tscn" id="1_idyg5"]
+[ext_resource type="Texture2D" uid="uid://th2k24o0ul0h" path="res://Materials/HDRI/puresky_dusk.hdr" id="1_qfy2e"]
+[ext_resource type="Material" uid="uid://dllwalcodg1hs" path="res://Materials/Prototype_Black.tres" id="2_h6c74"]
+[ext_resource type="Material" uid="uid://b8uvdb1uw10cd" path="res://Materials/Prototype_White.tres" id="3_h6c74"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mht3x"]
+panorama = ExtResource("1_qfy2e")
+energy_multiplier = 0.25
+
+[sub_resource type="Sky" id="Sky_3ghom"]
+sky_material = SubResource("PanoramaSkyMaterial_mht3x")
+
+[sub_resource type="Environment" id="Environment_cjask"]
+background_mode = 2
+sky = SubResource("Sky_3ghom")
+
+[node name="DemoLVL1" type="Node3D"]
+
+[node name="Env" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_cjask")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(0.72565067, 0.13916594, -0.6738427, 0, 0.9793324, 0.20225745, 0.6880634, -0.14676826, 0.71065325, 0, 10.311579, 37.329933)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_idyg5")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="House" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="House"]
+transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, 0, 0)
+material = ExtResource("2_h6c74")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 20, -9.5, 4.25, 0)
+size = Vector3(1, 8, 1)
+material = ExtResource("3_h6c74")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 20, 9.5, 4.25, 0)
+size = Vector3(1, 8, 1)
+material = ExtResource("3_h6c74")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="House"]
+transform = Transform3D(-4.371139e-08, 0, 20, 0, 1, 0, -1, 0, -8.742278e-07, 0, 4.25, 9.5)
+size = Vector3(1, 8, 1)
+material = ExtResource("3_h6c74")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="House"]
+transform = Transform3D(-4.371139e-08, 0, 20, 0, 1, 0, -1, 0, -8.742278e-07, 0, 4.25, -9.5)
+size = Vector3(1, 8, 1)
+material = ExtResource("3_h6c74")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="House"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, -10, 8.25, 10)
+polygon = PackedVector2Array(0, 0, 0, 1, 0.5044749, 13.888863, 1, 0)
+material = ExtResource("2_h6c74")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 9.467, 1.6940918, 0)
+operation = 2
+size = Vector3(3.7420654, 2.8881836, 1)
+material = ExtResource("2_h6c74")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7353787, 0)
+light_energy = 16.0
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 18.372963
+
+[node name="RockPH" type="CSGBox3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12.498839, -1.6765614, -2.4368055)
+use_collision = true
+
+[node name="RockPH2" type="CSGBox3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 17.502434, -1.6765614, 1.7448313)
+use_collision = true
+
+[node name="RockPH3" type="CSGBox3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 22.520786, -1.6765614, -1.7756631)
+use_collision = true
