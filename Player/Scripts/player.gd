@@ -122,7 +122,8 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("Crouch"):
 		is_crouched = true
 		$CollisionBody.set_deferred("disabled", true)
-		SPEED = CROUCH_SPEED
+		if is_on_floor():
+			SPEED = CROUCH_SPEED
 	elif Input.is_action_just_released("Crouch"):
 		if $RayCast3D.is_colliding() == false:
 			is_crouched = false
