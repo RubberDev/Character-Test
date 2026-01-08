@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlcfi4l8djhwb"]
+
+[ext_resource type="Script" uid="uid://bh6i4p3cuml2s" path="res://Objects/Prototype/proto_fire_pipe.gd" id="1_gwgr0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngyhg"]
+albedo_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+metallic = 1.0
+metallic_specular = 0.55
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwgr0"]
+albedo_color = Color(0.6165525, 0, 0.29298913, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gwgr0"]
+height = 0.8458252
+radius = 1.0
+
+[node name="EvilThing" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.20611572, 0)
+script = ExtResource("1_gwgr0")
+TimerTime = 1.0
+
+[node name="Body" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1.7182037, 0, 0, 0, 1, 0, 0, 0)
+radius = 1.1630859
+material = SubResource("StandardMaterial3D_ngyhg")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1.7182037, 0, 0, 0, 1, 0, 1.6583748, 0)
+operation = 2
+radius = 0.95410156
+height = 0.8480835
+
+[node name="Laser" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 29.818447, 0, 0, -1.1368684e-13, 1.0000004, 0, 14.153423, 5.5134296e-07)
+radius = 0.95410156
+height = 0.8480835
+material = SubResource("StandardMaterial3D_gwgr0")
+
+[node name="Area3D" type="Area3D" parent="Laser"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Laser/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, -4.8849813e-15, 0, 0, 0.99999416, 0, -0.00042712688, -5.9604645e-08)
+shape = SubResource("CylinderShape3D_gwgr0")
+
+[node name="FireTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="Laser/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="FireTimer" to="." method="_on_timer_timeout"]
