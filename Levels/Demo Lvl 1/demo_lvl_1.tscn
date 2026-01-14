@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://clkn3fd170vwu"]
+[gd_scene load_steps=19 format=3 uid="uid://clkn3fd170vwu"]
 
 [ext_resource type="PackedScene" uid="uid://dgsb6f8vuvfy4" path="res://Player/pause_menu.tscn" id="1_3ghom"]
 [ext_resource type="PackedScene" uid="uid://y01nc0no6pym" path="res://Player/Player.tscn" id="1_idyg5"]
@@ -7,6 +7,8 @@
 [ext_resource type="Material" uid="uid://b8uvdb1uw10cd" path="res://Materials/Prototype_White.tres" id="3_h6c74"]
 [ext_resource type="Script" uid="uid://btv2b1ybfcen" path="res://Levels/Demo Lvl 1/die.gd" id="4_cjask"]
 [ext_resource type="Material" uid="uid://okcvho5ppq1r" path="res://Materials/Prototype_Green.tres" id="5_mht3x"]
+[ext_resource type="PackedScene" uid="uid://b1cylvqn2etwo" path="res://Characters/Marlon.tscn" id="8_3cybf"]
+[ext_resource type="PackedScene" uid="uid://b4diasxp813si" path="res://Characters/Chazz.tscn" id="8_4bqv3"]
 [ext_resource type="PackedScene" uid="uid://dlcfi4l8djhwb" path="res://Objects/Prototype/Proto_FirePipe.tscn" id="8_trx2h"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mht3x"]
@@ -21,6 +23,7 @@ background_mode = 2
 sky = SubResource("Sky_3ghom")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ghom"]
+size = Vector3(1.8774414, 1, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cjask"]
 viewport_path = NodePath("House/Mirror/SubViewport")
@@ -51,14 +54,13 @@ transform = Transform3D(0.72565067, 0.13916594, -0.6738427, 0, 0.9793324, 0.2022
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_idyg5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Die" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.47972, -50.522972, 0)
 script = ExtResource("4_cjask")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Die"]
-transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 300, 0, 0, 0)
+transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 300, 219.36037, -317.2587, 0)
 shape = SubResource("BoxShape3D_3ghom")
 
 [node name="House" type="CSGCombiner3D" parent="."]
@@ -265,14 +267,27 @@ use_collision = true
 size = Vector3(1, 0.3067627, 1)
 
 [node name="RockPH24" type="CSGBox3D" parent="."]
-transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, -0.013577059, 55.19749)
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, -0.47293502, 55.19749)
 use_collision = true
 size = Vector3(2.0352783, 0.11627197, 1.1347656)
 
 [node name="RockPH29" type="CSGBox3D" parent="."]
-transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 0.41118196, 56.990376)
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 0.28629637, 56.990376)
 use_collision = true
-size = Vector3(2.0352783, 0.5410309, 0.37646484)
+size = Vector3(2.0352783, 0.41614532, 0.37646484)
+
+[node name="Label3D" type="Label3D" parent="RockPH29"]
+transform = Transform3D(0.2425413, 0, 0, 0, 0.45356825, 0, 0, 0, 1, 0, 0.3237694, 0)
+billboard = 1
+text = "Purchase food here (placeholder)"
+
+[node name="CharacterBase" parent="RockPH29" instance=ExtResource("8_3cybf")]
+transform = Transform3D(-0.3948934, 0, -4.3711385e-08, 0, 0.49999982, 0, 3.452267e-08, 0, -0.49999994, -9.329044, -1.4828403, -26.677395)
+
+[node name="Label3D" type="Label3D" parent="RockPH29/CharacterBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7011478, 0)
+billboard = 1
+text = "Bus is running late it appears"
 
 [node name="RockPH34" type="CSGBox3D" parent="."]
 transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 1.5079763, 59.635998)
@@ -283,6 +298,11 @@ size = Vector3(2.0352783, 1.637825, 0.37646484)
 transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 2.9782562, 58.356457)
 use_collision = true
 size = Vector3(2.0352783, 0.16754532, 1.6560059)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RockPH38"]
+transform = Transform3D(0.39489335, 0, 0, 0, 0.49999985, 0, 0, 0, 0.49999994, 0, -0.11734629, 0)
+light_color = Color(0.94769245, 0.78717834, 0, 1)
+shadow_enabled = true
 
 [node name="RockPH35" type="CSGBox3D" parent="."]
 transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 170.54137, 1.5079763, 58.47169)
@@ -329,14 +349,29 @@ transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 174.9
 use_collision = true
 size = Vector3(0.36306763, 0.7376747, 0.37646484)
 
+[node name="CharacterBase" parent="." instance=ExtResource("8_4bqv3")]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 172.90742, 0.92680705, 57.584137)
+
+[node name="Body" parent="CharacterBase/Body2" index="0"]
+transform = Transform3D(0.44498459, 0, 0, 0, 0.4517627, 0, 0, 0, 0.18968458, 0, 0.022448659, 0)
+
+[node name="Arm" parent="CharacterBase/Body2" index="3"]
+transform = Transform3D(0.09616456, 0.21887144, 0, -0.027429491, 0.76733744, 0, 0, 0, 0.1, -0.34770685, -0.18150443, 0)
+
+[node name="Arm2" parent="CharacterBase/Body2" index="4"]
+transform = Transform3D(0.09617416, -0.21860377, 0, 0.027395928, 0.7674145, 0, 0, 0, 0.09999997, 0.348, -0.182, 0)
+
+[node name="AnimationPlayer" parent="CharacterBase" index="2"]
+reset_on_save = false
+
 [node name="RockPH31" type="CSGBox3D" parent="."]
-transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 2.6200793, 56.990376)
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 2.521454, 56.990376)
 use_collision = true
-size = Vector3(2.0352783, 0.5410309, 0.37646484)
+size = Vector3(2.0352783, 0.63965607, 0.37646484)
 
 [node name="Label3D" type="Label3D" parent="RockPH31"]
-transform = Transform3D(-0.7425633, 0, 8.742278e-08, 0, 0.9069985, 0, -6.491695e-08, 0, -1, 0, 0, -0.19346619)
-text = "FOOD TRUCK STYLED FOOD TRUCK"
+transform = Transform3D(-0.58036405, 0, 8.742278e-08, 0, 0.73678637, 0, -5.0737036e-08, 0, -1, 0, 0, -0.19346619)
+text = "CHAZZ'S FOOD TRUCK STYLED FOOD TRUCK"
 
 [node name="RockPH30" type="CSGBox3D" parent="."]
 transform = Transform3D(2.543769, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, -0.101521105, 58.32253)
@@ -344,22 +379,22 @@ use_collision = true
 size = Vector3(2.0352783, 0.028327942, 1.7086182)
 
 [node name="RockPH25" type="CSGBox3D" parent="."]
-transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 170.96153, -0.9832733, 54.210674)
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 170.96153, -1.4426312, 54.210674)
 use_collision = true
 size = Vector3(0.17095947, 1.085968, 0.14794922)
 
 [node name="RockPH26" type="CSGBox3D" parent="."]
-transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 170.96153, -0.9832733, 56.189854)
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 170.96153, -1.4426312, 56.189854)
 use_collision = true
 size = Vector3(0.17095947, 1.085968, 0.14794922)
 
 [node name="RockPH27" type="CSGBox3D" parent="."]
-transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 174.67606, -0.9832733, 54.210674)
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 174.67606, -1.4426312, 54.210674)
 use_collision = true
 size = Vector3(0.17095947, 1.085968, 0.14794922)
 
 [node name="RockPH28" type="CSGBox3D" parent="."]
-transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 174.67606, -0.9832733, 56.189854)
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 174.67606, -1.4426312, 56.189854)
 use_collision = true
 size = Vector3(0.17095947, 1.085968, 0.14794922)
 
@@ -944,4 +979,90 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 300.
 [node name="EvilThing5" parent="." instance=ExtResource("8_trx2h")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 305.21582, 13.927063, 27.91019)
 
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 324.386, 1.9073486e-06, 16.563429)
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.7942132, -0.60763925, 0, 0.60763925, 0.7942132, 0, 0, 0, 1, 10.507477, -16.30097, 0)
+radius = 4.6757813
+height = 75.77515
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.7942132, -0.60763925, 0, 0.60763925, 0.7942132, 0, 0, 0, 1, 15.6953125, -23.081717, 0)
+operation = 2
+radius = 3.5263672
+height = 96.65253
+sides = 20
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.6188883, 0, -0.78547895, 0, 1, 0, 0.78547895, 0, 0.6188883, 363.42923, -64.33555, 24.917534)
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+transform = Transform3D(0.7942132, -0.60763925, 0, 0.60763925, 0.7942132, 0, 0, 0, 1, 10.507477, -16.30097, 0)
+radius = 4.6757813
+height = 75.77515
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+transform = Transform3D(0.7942132, -0.60763925, 0, 0.60763925, 0.7942132, 0, 0, 0, 1, 15.6953125, -23.081717, 0)
+operation = 2
+radius = 3.5263672
+height = 96.65253
+sides = 20
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.9321532, 0, 0.36206383, 0, 1, 0, -0.36206383, 0, 0.9321532, 396.22305, -129.01892, 46.522964)
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.7942132, -0.60763925, 0, 0.60763925, 0.7942132, 0, 0, 0, 1, 10.507477, -16.30097, 0)
+radius = 4.6757813
+height = 75.77515
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.7942132, -0.60763925, 0, 0.60763925, 0.7942132, 0, 0, 0, 1, 15.6953125, -23.081717, 0)
+operation = 2
+radius = 3.5263672
+height = 96.65253
+sides = 20
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(-7.2820754e-08, 0, -20, 0, 2.8399103, 0, 1.6659445, 0, -8.7422785e-07, 576.5912, -202.46722, 30.460238)
+billboard = 1
+text = "Trigger end cutscene"
+
+[node name="CSGCombiner3D4" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 457.17395, -203.84535, 30.304752)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 139.09102, 62.153076, -0.41957092, -15.790362)
+size = Vector3(230.0625, 0.16087341, 1.2270508)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCombiner3D4"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D4/CSGCombiner3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 130, 4.0050964, 0)
+size = Vector3(1, 0.44873047, 1)
+
+[node name="Label3D" type="Label3D" parent="CSGCombiner3D4/CSGCombiner3D/CSGBox3D2"]
+transform = Transform3D(-2.396851e-08, 0, -1, 0, 0.62187713, 0, 0.54833555, 0, -4.3711392e-08, -0.51065636, 0.11951542, 0)
+text = "Very Awesome Store"
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D4/CSGCombiner3D"]
+transform = Transform3D(18, 0, 0, 0, 18, 0, 0, 0, 19, 130, 4.0050964, 0)
+operation = 2
+size = Vector3(1, 0.44873047, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D4/CSGCombiner3D"]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 3, 120.11627, 1.6213684, 0.015563965)
+operation = 2
+size = Vector3(1, 0.6627197, 0.7828369)
+
 [connection signal="body_entered" from="Die" to="Die" method="_on_body_entered"]
+
+[editable path="CharacterBase"]
