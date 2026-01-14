@@ -254,6 +254,115 @@ transform = Transform3D(0.08788611, -0.26868212, -1.9799209, 0.1166915, 1.979142
 use_collision = true
 size = Vector3(1, 0.3067627, 1)
 
+[node name="RockPH22" type="CSGBox3D" parent="."]
+transform = Transform3D(1.110118, 0.58550954, -1.5571829, -0.39176694, 1.9113982, 0.43940437, 1.6168363, 0.0611308, 1.1756303, 174.68692, -0.2040683, 48.34766)
+use_collision = true
+size = Vector3(1, 0.3067627, 1)
+
+[node name="RockPH23" type="CSGBox3D" parent="."]
+transform = Transform3D(1.1283264, -0.6501015, -1.5179749, 0.33574215, 1.8904057, -0.560042, 1.6168363, 0.06113083, 1.1756303, 172.24445, -0.2040683, 50.11168)
+use_collision = true
+size = Vector3(1, 0.3067627, 1)
+
+[node name="RockPH24" type="CSGBox3D" parent="."]
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, -0.013577059, 55.19749)
+use_collision = true
+size = Vector3(2.0352783, 0.11627197, 1.1347656)
+
+[node name="RockPH29" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 0.41118196, 56.990376)
+use_collision = true
+size = Vector3(2.0352783, 0.5410309, 0.37646484)
+
+[node name="RockPH34" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 1.5079763, 59.635998)
+use_collision = true
+size = Vector3(2.0352783, 1.637825, 0.37646484)
+
+[node name="RockPH38" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 2.9782562, 58.356457)
+use_collision = true
+size = Vector3(2.0352783, 0.16754532, 1.6560059)
+
+[node name="RockPH35" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 170.54137, 1.5079763, 58.47169)
+use_collision = true
+size = Vector3(0.23101807, 1.637825, 1.5407715)
+
+[node name="RockPH36" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 175.11005, 1.5079763, 58.47169)
+use_collision = true
+size = Vector3(0.23101807, 1.637825, 1.5407715)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, -8.742279e-08, 2.647191, 0, -2.0000005, -1.157124e-07, 175.29797, -0.30402106, 56.852116)
+radius = 0.2788086
+height = 0.34973145
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, -8.742279e-08, 2.647191, 0, -2.0000005, -1.157124e-07, 171.33694, -0.30402106, 56.852116)
+radius = 0.2788086
+height = 0.34973145
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, -8.742279e-08, 2.647191, 0, -2.0000005, -1.157124e-07, 175.29797, -0.30402106, 59.844902)
+radius = 0.2788086
+height = 0.34973145
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, -8.742279e-08, 2.647191, 0, -2.0000005, -1.157124e-07, 171.33694, -0.30402106, 59.844902)
+radius = 0.2788086
+height = 0.34973145
+
+[node name="RockPH37" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 175.96396, 1.0297619, 58.32624)
+use_collision = true
+size = Vector3(0.905426, 1.1596107, 1.4318848)
+
+[node name="RockPH32" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 170.70856, 1.5646857, 56.990376)
+use_collision = true
+size = Vector3(0.36306763, 0.7376747, 0.37646484)
+
+[node name="RockPH33" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 174.9206, 1.5646857, 56.990376)
+use_collision = true
+size = Vector3(0.36306763, 0.7376747, 0.37646484)
+
+[node name="RockPH31" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5323293, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, 2.6200793, 56.990376)
+use_collision = true
+size = Vector3(2.0352783, 0.5410309, 0.37646484)
+
+[node name="Label3D" type="Label3D" parent="RockPH31"]
+transform = Transform3D(-0.7425633, 0, 8.742278e-08, 0, 0.9069985, 0, -6.491695e-08, 0, -1, 0, 0, -0.19346619)
+text = "FOOD TRUCK STYLED FOOD TRUCK"
+
+[node name="RockPH30" type="CSGBox3D" parent="."]
+transform = Transform3D(2.543769, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 172.82585, -0.101521105, 58.32253)
+use_collision = true
+size = Vector3(2.0352783, 0.028327942, 1.7086182)
+
+[node name="RockPH25" type="CSGBox3D" parent="."]
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 170.96153, -0.9832733, 54.210674)
+use_collision = true
+size = Vector3(0.17095947, 1.085968, 0.14794922)
+
+[node name="RockPH26" type="CSGBox3D" parent="."]
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 170.96153, -0.9832733, 56.189854)
+use_collision = true
+size = Vector3(0.17095947, 1.085968, 0.14794922)
+
+[node name="RockPH27" type="CSGBox3D" parent="."]
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 174.67606, -0.9832733, 54.210674)
+use_collision = true
+size = Vector3(0.17095947, 1.085968, 0.14794922)
+
+[node name="RockPH28" type="CSGBox3D" parent="."]
+transform = Transform3D(2.0000007, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000002, 174.67606, -0.9832733, 56.189854)
+use_collision = true
+size = Vector3(0.17095947, 1.085968, 0.14794922)
+
 [node name="RoadSlice" type="CSGCombiner3D" parent="."]
 use_collision = true
 
