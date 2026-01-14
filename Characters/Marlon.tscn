@@ -901,7 +901,6 @@ shape = SubResource("CapsuleShape3D_y05t7")
 
 [node name="Body" type="MeshInstance3D" parent="Body2"]
 transform = Transform3D(0.5196615, 0, 0, 0, 0.47583959, 0.008600986, 0, -0.017390031, 0.23534687, 0, 0.016958714, 0)
-layers = 2
 mesh = SubResource("CapsuleMesh_so4cy")
 skeleton = NodePath("../../CollisionBody")
 surface_material_override/0 = ExtResource("1_dabne")
