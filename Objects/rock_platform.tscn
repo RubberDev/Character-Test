@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqcwpovqjciwm"]
+
+[ext_resource type="ArrayMesh" uid="uid://dvxmm1p0st4lc" path="res://Objects/Models/RockPlatform.obj" id="1_fi0v0"]
+[ext_resource type="Texture2D" uid="uid://6lrfq3q2c5bq" path="res://Textures/rock.png" id="2_bxye7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke5cc"]
+albedo_texture = ExtResource("2_bxye7")
+
+[node name="RockPlatform" type="Node3D"]
+
+[node name="RockPlatform" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_fi0v0")
+surface_material_override/0 = SubResource("StandardMaterial3D_ke5cc")
