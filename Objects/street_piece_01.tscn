@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cjkrhufs1oq5h" path="res://Objects/Models/StreetPiece.obj" id="1_5abwt"]
 
 [node name="StreetPiece_01" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="StreetPiece" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("1_5abwt")
