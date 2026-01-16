@@ -1,7 +1,7 @@
 # Blender 5.0.0
 # www.blender.org
 mtllib StreetPiece.mtl
-o streetpart-colonly
+o streetpiece-col
 v 15.007074 -0.244892 8.741915
 v 15.007074 -0.244892 2.941916
 v 21.007074 -0.244892 8.741915
