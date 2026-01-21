@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck6w5hh8rji6t"]
+
+[ext_resource type="ArrayMesh" uid="uid://bf6wqc5mbggqe" path="res://Objects/Models/BusStop.obj" id="1_et85y"]
+[ext_resource type="Material" uid="uid://dosxj06witimu" path="res://Materials/DarkGlass.tres" id="2_82v1n"]
+[ext_resource type="Material" uid="uid://cxvgjdapex3tk" path="res://Materials/Metal_02.tres" id="3_8h7ia"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8h7ia"]
+albedo_color = Color(0.1376983, 0.22051254, 0, 1)
+metallic = 1.0
+
+[node name="BusStop" type="Node3D"]
+
+[node name="BusStop" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.03420174, 0)
+mesh = ExtResource("1_et85y")
+surface_material_override/0 = SubResource("StandardMaterial3D_8h7ia")
+surface_material_override/1 = ExtResource("2_82v1n")
+surface_material_override/2 = ExtResource("3_8h7ia")
+surface_material_override/3 = ExtResource("3_8h7ia")

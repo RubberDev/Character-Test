@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://couileiem5dlw"]
+
+[ext_resource type="ArrayMesh" uid="uid://cda25xnvlup4s" path="res://Objects/Models/LightPost.obj" id="1_e8ung"]
+[ext_resource type="Material" uid="uid://c6e0hm0r68w6o" path="res://Materials/Metal_01.tres" id="2_t3612"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7trn"]
+albedo_color = Color(0.99999994, 0.6375708, 0.002083869, 1)
+emission_enabled = true
+emission = Color(0.92375195, 0.52330446, 9.62615e-07, 1)
+emission_energy_multiplier = 5.59
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t3612"]
+height = 1.9889679
+radius = 0.1694336
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b7trn"]
+height = 1.23349
+radius = 0.107910156
+
+[node name="LightPost" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1.1609869, 0, 0, 0)
+
+[node name="LightPost" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_e8ung")
+surface_material_override/0 = ExtResource("2_t3612")
+surface_material_override/1 = ExtResource("2_t3612")
+surface_material_override/2 = SubResource("StandardMaterial3D_b7trn")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -3.1222424e-08, 0.7142858, 0, -0.86133623, -3.7650203e-08, 1.1321592, 3.3077016, 0)
+light_color = Color(0.9970971, 0.7125665, 0, 1)
+light_energy = 5.474
+shadow_enabled = true
+spot_range = 11.321915
+spot_angle = 42.0081
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000002, 0, 0.99503434, 0)
+shape = SubResource("CylinderShape3D_t3612")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000002, 0, 2.5994744, 0)
+shape = SubResource("CylinderShape3D_b7trn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.96319515, 0.06727031, 0, -0.282845, 0.2290818, 0, 0, 0, 1.0000002, 0.045347452, 3.360671, 0)
+shape = SubResource("CylinderShape3D_b7trn")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5773904, 0.18477897, 0, -0.70563483, 0.15119687, 0, 0, 0, 1.0000002, 0.19391537, 3.5696948, 0)
+shape = SubResource("CylinderShape3D_b7trn")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.011838615, 0.32984048, 0, -0.91167974, 0.0042834054, 0, 0, 0, 1.0000002, 0.52256536, 3.6275785, 0)
+shape = SubResource("CylinderShape3D_b7trn")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.45303684, 0.28626552, 0, -0.7912381, -0.1639059, 0, 0, 0, 1.0000002, 0.9232483, 3.5278902, 0)
+shape = SubResource("CylinderShape3D_b7trn")

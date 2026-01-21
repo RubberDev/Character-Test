@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cxvgjdapex3tk"]
+
+[resource]
+albedo_color = Color(0.43134046, 0.43134016, 0.43134034, 1)
+metallic = 1.0
+anisotropy_enabled = true

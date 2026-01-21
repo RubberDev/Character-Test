@@ -21,6 +21,7 @@ sky_material = SubResource("PanoramaSkyMaterial_mht3x")
 [sub_resource type="Environment" id="Environment_cjask"]
 background_mode = 2
 sky = SubResource("Sky_3ghom")
+glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ghom"]
 size = Vector3(1.8774414, 1, 1)
